@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ají Panka · Cocina Peruana Fusión · Coronel</title>
+<meta name="description" content="Ají Panka Restaurante: ceviches, clásicos peruanos, fusión y pollo a la brasa en Coronel. Reserva o pide por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vino:#2b0d1c; --vino-2:#3d1428; --panka:#c0392b; --panka-2:#e0533f;
+  --oro:#efc75e; --crema:#fbf4ea; --tinta:#1d1216; --gris:#7a6a6f;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--tinta);background:var(--crema);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.08;letter-spacing:-.01em}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--panka)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.5rem;border-radius:999px;font-weight:600;font-size:.98rem;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:#25d366;color:#08331a;box-shadow:0 10px 30px -10px #25d36699}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.btn-panka{background:var(--panka);color:#fff}
+.btn-panka:hover{background:var(--panka-2)}
+svg.ic{width:20px;height:20px;flex:none}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+nav.solid{background:rgba(43,13,28,.94);backdrop-filter:blur(10px);box-shadow:0 6px 30px -12px #0008}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:.7rem;color:#fff}
+.logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--oro)}
+.logo b{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:800;letter-spacing:.01em}
+.logo small{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro);margin-top:-2px}
+.links{display:flex;gap:1.8rem;color:#f3e6ea;font-size:.95rem}
+.links a:hover{color:var(--oro)}
+.nav-cta{padding:.6rem 1.1rem;font-size:.9rem}
+@media(max-width:860px){.links{display:none}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--vino)}
+.hero-bg{position:absolute;inset:0;display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;opacity:.9}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg img:first-child{grid-row:span 2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,13,28,.55) 0%,rgba(43,13,28,.35) 35%,rgba(43,13,28,.92) 78%,var(--vino) 100%)}
+.hero-in{position:relative;z-index:2;padding:0 0 8vh}
+.hero h1{font-size:clamp(2.8rem,7.5vw,6.2rem);font-weight:800;max-width:14ch;margin:.6rem 0 1.2rem}
+.hero h1 em{font-style:italic;color:var(--oro);font-weight:600}
+.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:52ch;color:#f1e3e8;margin-bottom:2rem}
+.hero .eyebrow{color:var(--oro)}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.badges{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.6rem;color:#eedbe2;font-size:.92rem}
+.badges b{font-family:'Fraunces',serif;font-size:1.6rem;color:#fff;display:block;line-height:1}
+.stars{color:var(--oro);letter-spacing:2px}
+
+/* STRIP */
+.strip{background:var(--panka);color:#fff;overflow:hidden;white-space:nowrap;padding:.9rem 0;font-family:'Fraunces',serif;font-size:1.3rem;font-style:italic}
+.strip div{display:inline-block;animation:mar 38s linear infinite}
+.strip span{margin:0 1.6rem}
+.strip span.dot{color:var(--oro);font-style:normal}
+@keyframes mar{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:2.6rem;flex-wrap:wrap}
+.head h2{font-size:clamp(2.1rem,4.4vw,3.4rem);margin-top:.5rem;max-width:18ch}
+.head p{max-width:44ch;color:var(--gris)}
+
+/* FAVORITOS */
+.fav-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.fav{position:relative;border-radius:var(--radius);overflow:hidden;min-height:300px;color:#fff;grid-column:span 4;background:#000}
+.fav:nth-child(1){grid-column:span 7;grid-row:span 2;min-height:618px}
+.fav:nth-child(2){grid-column:span 5}
+.fav:nth-child(3){grid-column:span 5}
+.fav img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.fav:hover img{transform:scale(1.05)}
+.fav::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(20,6,12,.9))}
+.fav .cap{position:absolute;left:0;right:0;bottom:0;padding:1.4rem;z-index:2}
+.fav h3{font-size:1.6rem}
+.fav:nth-child(1) h3{font-size:2.4rem}
+.fav .cap p{font-size:.92rem;color:#eedde3;max-width:46ch;margin-top:.3rem}
+.tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--oro);color:var(--vino);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .7rem;border-radius:999px}
+.price{font-family:'Fraunces',serif;font-weight:600;color:var(--oro);font-size:1.15rem;margin-top:.5rem;display:inline-block}
+@media(max-width:860px){.fav,.fav:nth-child(n){grid-column:span 12;min-height:300px}.fav:nth-child(1){min-height:420px}}
+
+/* CARTA */
+#carta{background:#fff}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;margin-bottom:2rem;scrollbar-width:none;position:sticky;top:74px;background:#fff;z-index:5;padding-top:.8rem}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:.65rem 1.15rem;border-radius:999px;border:1.5px solid #ecdfe3;background:#fff;font:500 .93rem 'Outfit';cursor:pointer;color:var(--tinta);transition:.2s}
+.tab:hover{border-color:var(--panka)}
+.tab.on{background:var(--vino);color:#fff;border-color:var(--vino)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.card{background:var(--crema);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;animation:fade .45s both}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px #2b0d1c55}
+.card .ph{aspect-ratio:4/3;overflow:hidden;position:relative;background:#eadbd0}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .ph .tag{top:10px;left:10px}
+.card .bd{padding:1.1rem 1.15rem 1.25rem;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.22rem;font-weight:600}
+.card p{font-size:.88rem;color:var(--gris);margin:.35rem 0 .9rem;flex:1}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.card .price{color:var(--panka);margin:0}
+.add{width:38px;height:38px;border-radius:50%;background:var(--vino);color:#fff;display:grid;place-items:center;font-size:1.3rem;transition:.2s}
+.add:hover{background:#25d366;color:#08331a}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:0 48px}
+.li{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px dashed #e3d3d8;animation:fade .45s both}
+.li h3{font-size:1.15rem;font-weight:600}
+.li p{font-size:.88rem;color:var(--gris)}
+.li .dots{flex:1}
+.li .price{color:var(--panka);margin:0;white-space:nowrap}
+.note{font-size:.82rem;color:var(--gris);margin-top:1.6rem}
+
+/* PIQUEOS */
+#piqueos{background:var(--vino);color:#fff}
+#piqueos .head p{color:#d9c3cb}
+#piqueos .eyebrow{color:var(--oro)}
+.pq{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.pq .card{background:var(--vino-2);color:#fff}
+.pq .card p{color:#cfb5bf}
+.pq .card .price{color:var(--oro)}
+
+/* BAR */
+.bar{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.bar-img{border-radius:var(--radius);overflow:hidden;position:relative;aspect-ratio:4/5}
+.bar-img img{width:100%;height:100%;object-fit:cover}
+.bar-img .tag{top:auto;bottom:18px;left:18px;font-size:.8rem}
+.drinks{columns:2;column-gap:40px}
+.drink{break-inside:avoid;display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid #eadcd1;font-size:.98rem}
+.drink span:last-child{font-family:'Fraunces',serif;color:var(--panka);font-weight:600}
+@media(max-width:860px){.bar{grid-template-columns:1fr}.drinks{columns:1}}
+
+/* RESEÑAS */
+#opiniones{background:linear-gradient(180deg,var(--crema),#f4e6d6)}
+.rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.rv{background:#fff;border-radius:var(--radius);padding:1.6rem;box-shadow:0 14px 34px -26px #2b0d1c66}
+.rv p{font-family:'Fraunces',serif;font-size:1.12rem;font-style:italic;margin:.8rem 0 1rem}
+.rv small{color:var(--gris)}
+.demo-note{display:inline-block;margin-top:1rem;font-size:.8rem;color:var(--gris);background:#fff;padding:.35rem .8rem;border-radius:999px}
+
+/* LOCAL */
+.local{display:grid;grid-template-columns:1.15fr 1fr;gap:0;border-radius:24px;overflow:hidden;background:var(--vino);color:#fff}
+.local img{width:100%;height:100%;object-fit:cover;min-height:420px}
+.local .info{padding:3rem}
+.local h2{font-size:clamp(2rem,3.6vw,2.9rem);margin:.6rem 0 1.4rem}
+.local .eyebrow{color:var(--oro)}
+.inf{display:flex;gap:1rem;padding:1rem 0;border-top:1px solid #ffffff1f}
+.inf svg{color:var(--oro);margin-top:3px}
+.inf b{display:block;font-weight:600}
+.inf span{color:#d9c3cb;font-size:.93rem}
+.local .cta-row{margin-top:1.6rem}
+@media(max-width:860px){.local{grid-template-columns:1fr}.local .info{padding:2rem}}
+
+footer{background:#1a0811;color:#bfa6b0;padding:48px 0 34px;font-size:.9rem}
+.f-in{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+footer .logo{color:#fff}
+
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 30px -8px #25d366aa;animation:pulse 2.6s infinite}
+.wa-float svg{width:32px;height:32px;color:#fff}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 #25d36677}50%{box-shadow:0 0 0 14px #25d36600}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#inicio" class="logo"><img src="https://pedidosya.dhmedia.io/image/pedidosya/restaurants/live-566066-cc692.jpeg?quality=90&width=200" alt="Logo Ají Panka"><div><b>Ají Panka</b><small>Cocina peruana</small></div></a>
+    <div class="links"><a href="#favoritos">Favoritos</a><a href="#carta">Carta</a><a href="#piqueos">Para compartir</a><a href="#bar">Bar</a><a href="#local">Visítanos</a></div>
+    <a class="btn btn-wa nav-cta" href="https://api.whatsapp.com/send?phone=56977673589&text=Hola%20equipo%20Aj%C3%AD%20Panka%2C%20los%20encontr%C3%A9%20en%20Google%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%2Freserva.%20%F0%9F%8C%B6%EF%B8%8F%F0%9F%98%80" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 23.8 12a11.7 11.7 0 0 0-3.4-8.4z"/></svg> Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg">
+    <img src="https://pedidosya.dhmedia.io/image/pedidosya/products/f98266ed-bc97-4b11-bc6c-6aa7aee29d06.jpeg?quality=85&width=1200" alt="">
+    <img src="https://pedidosya.dhmedia.io/image/pedidosya/products/da980123-1ccd-4c34-b4a4-3e0f1b8b8b2a.jpeg?quality=85&width=1200" alt="">
+    <img src="https://pedidosya.dhmedia.io/image/pedidosya/products/3801d34d-7656-41fd-b4a4-df1f7e899894.jpeg?quality=85&width=1200" alt="">
+    <img src="https://pedidosya.dhmedia.io/image/pedidosya/products/d2ee9643-5fe0-49c1-b46a-c45d42e2dbf6.jpeg?quality=85&width=1200" alt="">
+    <img src="https://pedidosya.dhmedia.io/image/pedidosya/products/5e7589d8-f4a8-4e78-b71f-cb923d06e835.jpeg?quality=85&width=1000" alt="">
+  </div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Restaurante peruano · Coronel</span>
+    <h1>El sabor del Perú, <em>con fuego del sur</em></h1>
+    <p class="lead">Ceviches frescos, clásicos criollos, platos de autor y pollo a la brasa. Cocina peruana fusión para venir a celebrar o pedir a casa.</p>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=56977673589&text=Hola%20equipo%20Aj%C3%AD%20Panka%2C%20los%20encontr%C3%A9%20en%20Google%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%2Freserva.%20%F0%9F%8C%B6%EF%B8%8F%F0%9F%98%80" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 23.8 12a11.7 11.7 0 0 0-3.4-8.4z"/></svg> Reserva o pide por WhatsApp</a>
+      <a class="btn btn-ghost" href="#carta">Ver la carta →</a>
+    </div>
+    <div class="badges">
+      <div><b>4.6 <span class="stars">★</span></b>en PedidosYa</div>
+      <div><b>50+</b>platos en carta</div>
+      <div><b>Delivery</b>y retiro en local</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip"><div>
+  <span>Ceviche</span><span class="dot">✦</span><span>Lomo saltado</span><span class="dot">✦</span><span>Ají de gallina</span><span class="dot">✦</span><span>Pisco sour</span><span class="dot">✦</span><span>Pollo a la brasa</span><span class="dot">✦</span><span>Jalea mixta</span><span class="dot">✦</span><span>Arroz chaufa</span><span class="dot">✦</span><span>Suspiro limeño</span><span class="dot">✦</span>
+  <span>Ceviche</span><span class="dot">✦</span><span>Lomo saltado</span><span class="dot">✦</span><span>Ají de gallina</span><span class="dot">✦</span><span>Pisco sour</span><span class="dot">✦</span><span>Pollo a la brasa</span><span class="dot">✦</span><span>Jalea mixta</span><span class="dot">✦</span><span>Arroz chaufa</span><span class="dot">✦</span><span>Suspiro limeño</span><span class="dot">✦</span>
+</div></div>
+
+<section id="favoritos">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Los más pedidos</span><h2>Los favoritos de la casa</h2></div>
+      <p>Lo que más piden nuestros clientes. Si es tu primera vez en Ají Panka, empieza por aquí.</p>
+    </div>
+    <div class="fav-grid" id="favGrid"></div>
+  </div>
+</section>
+
+<section id="carta">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Nuestra carta</span><h2>Para todos los antojos</h2></div>
+      <p>Toca el <b>+</b> en cualquier plato para pedirlo directo por WhatsApp.</p>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div id="menu"></div>
+    <p class="note">Precios referenciales en pesos chilenos. Pueden variar entre consumo en local y delivery.</p>
+  </div>
+</section>
+
+<section id="piqueos">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Para compartir</span><h2>Piqueos para la mesa larga</h2></div>
+      <p>Tablas generosas para probar un poco de todo: perfectas para celebrar en grupo.</p>
+    </div>
+    <div class="pq" id="pqGrid"></div>
+  </div>
+</section>
+
+<section id="bar">
+  <div class="wrap bar">
+    <div class="bar-img reveal"><img src="https://pedidosya.dhmedia.io/image/pedidosya/products/ba39858b-f9bb-4ca9-a2be-b4ce42c5dc1b.jpeg?quality=85&width=1000" alt="Pisco sour Ají Panka"><span class="tag">Pisco Quebranta</span></div>
+    <div class="reveal">
+      <span class="eyebrow">Bar &amp; aperitivos</span>
+      <h2 style="font-size:clamp(2.1rem,4.4vw,3.2rem);margin:.5rem 0 1.6rem">Brindemos con pisco</h2>
+      <div class="drinks" id="drinks"></div>
+      <p class="note">También vinos, espumantes, cervezas y destilados. Consulta la carta completa en el local.</p>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">Opiniones</span><h2>Lo que dicen en la mesa</h2></div>
+      <p><span class="stars" style="font-size:1.3rem">★★★★★</span><br>4.6 de 5 en PedidosYa (25 opiniones).</p>
+    </div>
+    <div class="rev">
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>“[Reseña de ejemplo] El ceviche mixto llegó fresquísimo y la leche de tigre, de otro nivel.”</p><small>Cliente · Google</small></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>“[Reseña de ejemplo] El lomo saltado como en Lima. Porciones abundantes y muy buena atención.”</p><small>Cliente · Google</small></div>
+      <div class="rv reveal"><span class="stars">★★★★★</span><p>“[Reseña de ejemplo] Fuimos a celebrar con el piqueo fusión y el pisco sour catedral. Volveremos.”</p><small>Cliente · Google</small></div>
+    </div>
+    <span class="demo-note">Demo: reemplazar por reseñas reales de Google del local.</span>
+  </div>
+</section>
+
+<section id="local" style="padding-top:40px">
+  <div class="wrap">
+    <div class="local reveal">
+      <img src="data:image/jpeg;base64,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" alt="Fachada de Ají Panka en Coronel">
+      <div class="info">
+        <span class="eyebrow">Visítanos</span>
+        <h2>Te esperamos en Coronel</h2>
+        <div class="inf"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Dirección</b><span>Coronel, Región del Biobío · [dirección exacta por confirmar]</span></div></div>
+        <div class="inf"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horario</b><span>[Horario por confirmar] · Escríbenos para reservas</span></div></div>
+        <div class="inf"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><b>Reservas y pedidos</b><span>+56 9 7767 3589 (WhatsApp)</span></div></div>
+        <div class="cta-row">
+          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=56977673589&text=Hola%20equipo%20Aj%C3%AD%20Panka%2C%20los%20encontr%C3%A9%20en%20Google%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%2Freserva.%20%F0%9F%8C%B6%EF%B8%8F%F0%9F%98%80" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 23.8 12a11.7 11.7 0 0 0-3.4-8.4z"/></svg> WhatsApp</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Aji+Panka+Restaurante+Coronel" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-panka" href="https://www.pedidosya.cl/restaurantes/gran-concepcion/aji-panka-restaurante-73cf0424-eb0e-4091-82f5-1d0dc7d71fc9-menu" target="_blank" rel="noopener">Pedir en PedidosYa</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-in">
+    <a href="#inicio" class="logo"><img src="https://pedidosya.dhmedia.io/image/pedidosya/restaurants/live-566066-cc692.jpeg?quality=90&width=200" alt=""><div><b>Ají Panka</b><small>Cocina peruana</small></div></a>
+    <div>© 2026 Ají Panka Restaurante · Coronel, Chile</div>
+    <div><a href="https://api.whatsapp.com/send?phone=56977673589&text=Hola%20equipo%20Aj%C3%AD%20Panka%2C%20los%20encontr%C3%A9%20en%20Google%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%2Freserva.%20%F0%9F%8C%B6%EF%B8%8F%F0%9F%98%80" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://www.pedidosya.cl/restaurantes/gran-concepcion/aji-panka-restaurante-73cf0424-eb0e-4091-82f5-1d0dc7d71fc9-menu" target="_blank" rel="noopener">PedidosYa</a></div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://api.whatsapp.com/send?phone=56977673589&text=Hola%20equipo%20Aj%C3%AD%20Panka%2C%20los%20encontr%C3%A9%20en%20Google%20y%20me%20gustar%C3%ADa%20hacer%20un%20pedido%2Freserva.%20%F0%9F%8C%B6%EF%B8%8F%F0%9F%98%80" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 23.8 12a11.7 11.7 0 0 0-3.4-8.4z"/></svg></a>
+
+<script>
+const WA_PHONE="56977673589";
+const PY="https://www.pedidosya.cl/restaurantes/gran-concepcion/aji-panka-restaurante-73cf0424-eb0e-4091-82f5-1d0dc7d71fc9-menu";
+const IMG=n=>"https://pedidosya.dhmedia.io/image/pedidosya/products/"+n+".jpeg?quality=85&width=700";
+const MENU={"Ceviches": [{"n": "CEVICHE MIXTO", "d": "Pesca del día y mixtura de mariscos, camarones, pinzas, ostiones", "p": 16200, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/da980123-1ccd-4c34-b4a4-3e0f1b8b8b2a.jpeg?quality=85&width=700", "top": true}, {"n": "CEVICHE SUREÑO", "d": "Salmón, pinzas de jaiba, pulpo en leche de tigre al ají amarillo con dash de pisco quebranta", "p": 16990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/148cd89c-ed95-47b7-9e97-cdfe749b0fe1.jpeg?quality=85&width=700"}, {"n": "CEVICHE DE PESCADO", "d": "Trozos de pesca del día al mejor estilo peruano con choclo, canchita y camote", "p": 14490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/f5845236-6684-43a2-bb69-784028470296.jpeg?quality=85&width=700"}, {"n": "CEVICHE DE LA CASA", "d": "Pesca del día y camarones con leche de tigre en crema de rocoto", "p": 16990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/161a6d44-88f3-4a0d-9d42-66fc6f9e5db4.jpeg?quality=85&width=700"}, {"n": "CEVICHE AJI PANKA", "d": "Trozos de salmón con palta en leche de tigre al ají amarillo", "p": 14490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/03e1d5d0-41ff-4577-9142-a03eb37d2c83.jpeg?quality=85&width=700"}, {"n": "Ceviche agachadito", "d": "Trío de ceviches: pescado, pescado camarón y ceviche mixto", "p": 18490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/9901d01e-02d3-4398-99ca-49878ed93902.jpeg?quality=85&width=700"}], "Clásicos peruanos": [{"n": "LOMO SALTEADO", "d": "Trozos de filete salteados al wok con cebolla, tomate, ají amarillo y cilantro, con arroz blanco y papas fritas", "p": 19990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/f98266ed-bc97-4b11-bc6c-6aa7aee29d06.jpeg?quality=85&width=700", "top": true}, {"n": "AJI DE GALLINA", "d": "Salsa a base de ají amarillo con pollo deshilachado, acompañado de arroz blanco", "p": 17990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/d2ee9643-5fe0-49c1-b46a-c45d42e2dbf6.jpeg?quality=85&width=700", "top": true}, {"n": "FETUCCINNI A LA HUANCAINA", "d": "Lomo saltado acompañado de fetuccinis a la huancaína", "p": 19490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/930ef712-b146-4372-ba98-1085c9eb7a09.jpeg?quality=85&width=700", "top": true}, {"n": "Arroz chaufa 3 sabores", "d": "Arroz salteado al wok con camarones, pollo y filete, soya, tortilla de huevo y diente de dragón", "p": 17990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/eb8030ae-4050-4b05-a1b6-8469939c0312.jpeg?quality=85&width=700"}, {"n": "ARROZ CON MARISCOS", "d": "Meloso arroz en salsa de mariscos con surtido del mar, arvejas, cilantro, morrón y sarza criolla", "p": 18990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/9f1b82c9-48c6-4a3d-901f-2ae26dcdfeae.jpeg?quality=85&width=700"}, {"n": "Chaufilomo", "d": "Lomo saltado acompañado de arroz chaufa", "p": 18990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/0e8e9e2f-02b5-45d0-bded-22411b011923.jpeg?quality=85&width=700"}, {"n": "Cesar pollo", "d": "Mix de lechugas, crutones, cherrys y palta con vinagreta de la casa", "p": 10950, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/d0550d6e-d6ed-4f9f-b6c1-a85cf1042f02.jpeg?quality=85&width=700"}], "Fusión carnes": [{"n": "FILETE MAR Y TIERRA", "d": "Filete bañado en salsa a lo macho con surtido de mariscos y risotto al perejil", "p": 22490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/f3899b40-a3a9-463f-a583-ab576ed65a48.jpeg?quality=85&width=700"}, {"n": "RISSOTO CRIOLLO", "d": "Cremoso risotto al ají amarillo acompañado de lomo saltado", "p": 20490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/3062633a-aca0-4116-bb01-75c61acd0aba.jpeg?quality=85&width=700", "top": true}, {"n": "AJI PANKA BEEF", "d": "Lomo liso con cremoso risotto al ají amarillo y toques de morrón", "p": 19990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/5ffc6cdb-3a99-4d5b-94aa-fc6553d92a99.jpeg?quality=85&width=700"}, {"n": "FILETE BBQ", "d": "Filete en salsa BBQ con tocino y camarones, papas rústicas salteadas con chimichurri", "p": 20490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/2e4d7aba-c106-4543-9525-0bb64d47d3da.jpeg?quality=85&width=700", "top": true}, {"n": "FILETE DEL CHEF", "d": "Filete en salsa de morrón con tocino y camarones, toques de estragón y papas a la crema", "p": 21490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/6bf6ea9e-d63e-4e54-afa5-b6ab7706c3f0.jpeg?quality=85&width=700"}, {"n": "Filete a la antigua", "d": "Filete bañado en salsa de mostaza antigua con camarones", "p": 21490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/34a1bcd9-5cda-4b7c-b9e6-898a4e0fa965.jpeg?quality=85&width=700"}], "Fusión pescados": [{"n": "PESCADO A LO MACHO", "d": "Pescado a la plancha bañado en salsa a lo macho con mixtura de mariscos y acompañamiento a elección", "p": 19990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/e00afb26-8288-4c54-9046-5fb5f4019ffe.jpeg?quality=85&width=700"}, {"n": "PULPO A LA PARRILLA", "d": "3 tentáculos de pulpo marinados al estilo de la casa, papas rústicas y vegetales del día", "p": 25490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/3801d34d-7656-41fd-b4a4-df1f7e899894.jpeg?quality=85&width=700"}, {"n": "Salmon del pacifico", "d": "Bañado en salsa de tomillo con camarones salteados y acompañamiento a elección", "p": 18990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/d04bca91-b3bd-458c-9b6b-4958dae23b6e.jpeg?quality=85&width=700"}, {"n": "Salmon a la plancha", "d": "Pieza de salmón a la plancha con ensalada fresca y acompañamiento a elección", "p": 18990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/34b6fd2d-2133-4324-a79d-1400562ee799.jpeg?quality=85&width=700"}, {"n": "Pescado del chef", "d": "Atún a la plancha en salsa de morrón con camarones y tocino, papas salteadas con chimichurri", "p": 18500, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/603e9db5-392b-4db1-b568-e63ac87c552a.jpeg?quality=85&width=700"}, {"n": "Timbal de camarones", "d": "Camarones salteados en mantequilla, estragón y cognac, con salsa crustácea, crema y parmesano", "p": 19990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/47dc03c1-35c7-4f58-9cfc-f72133a5c25c.jpeg?quality=85&width=700"}], "Fusión pollo": [{"n": "Pollo salteado", "d": "Pollo salteado al wok con cebolla morada, tomate, ají amarillo y soya, con arroz y papas fritas", "p": 18490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/51c3d90b-f589-414b-906d-06ed22b25494.jpeg?quality=85&width=700", "top": true}, {"n": "CHICHARRON DE POLLO", "d": "Chicharrón de pollo empanizado y frito, con papas fritas y ensalada fresca", "p": 13490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/eb8735c2-0650-4976-9a12-7c86f60b3b8d.jpeg?quality=85&width=700", "top": true}, {"n": "Enrollado aji panka", "d": "Relleno de camarones, morrón, queso y espinaca, en salsa huancaína con papas fritas", "p": 21580, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/3b8f4a62-1655-4e77-8ac7-830f23862250.jpeg?quality=85&width=700"}, {"n": "POLLO A LA FRANCESA", "d": "Pollo a la plancha en salsa de champiñón con acompañamiento a elección", "p": 19450, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/4ea84513-50b9-4889-87d4-c75c898cf166.jpeg?quality=85&width=700"}, {"n": "MILANESA DEL CHEF", "d": "Pechuga al panko acompañada de fetuccinis al pesto", "p": 18990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/5e2c047c-e7ec-4308-a9a4-fe2a2b5f0215.jpeg?quality=85&width=700"}], "Pollo a la brasa": [{"n": "1 pollo a la brasa", "d": "Pollo entero con abundante papa frita, ensalada fresca y salsas peruanas", "p": 39990}, {"n": "1/2 pollo a la brasa", "d": "Con abundante papa frita, ensalada fresca y salsas peruanas", "p": 24990}, {"n": "1/4 pollo a la brasa", "d": "Con abundante papa frita, ensalada fresca y salsas peruanas", "p": 14990}, {"n": "Mostrito peruano", "d": "Arroz chaufa de la casa con 1/4 de pollo a la brasa, papas fritas y ensalada", "p": 19990}, {"n": "Arroz chaufa a la brasa", "d": "Arroz chaufa con trozos de pollo a la brasa + 2 tequeños", "p": 18990}, {"n": "Tequeños a la brasa", "d": "10 unidades rellenos de pollo a la brasa, con salsa golf", "p": 16990}], "Sopas": [{"n": "Dieta de pollo", "d": "Consomé de pollo con cabello de ángel", "p": 8500}, {"n": "Chilcano de congrio", "d": "Fumet de pescado con toques de ajo, arvejas, choclo, trozo de congrio, yuca y perfumado con vino blanco", "p": 10500}, {"n": "Sudado de pescado", "d": "Concentrado de pescado con aderezo peruano de ají amarillo, cebolla, tomate y cilantro, con arroz y yucas", "p": 12500}, {"n": "Aguadito de pescado", "d": "Pescado del día cocinado en fumet con salsa de cilantro, arvejas, morrón, zanahoria, choclo y arroz", "p": 12990}, {"n": "Parihuela norteña", "d": "Clásico levantamuertos peruano: caldo de pescado del día con mariscos, yuyo y yuca en aderezo peruano con ají panca", "p": 13990}, {"n": "Chupe de camarones", "d": "Concentrado de camarones en aderezo clásico peruano con arvejas, arroz, morrón y un dash de leche evaporada", "p": 14200}], "Postres": [{"n": "Suspiro limeño", "d": "Clásico dulce limeño", "p": 4990}, {"n": "Tres leches", "d": "Bizcocho bañado en tres leches", "p": 4990}, {"n": "Cheesecake de maracuyá", "d": "Cheesecake con salsa de maracuyá", "p": 4990}, {"n": "Cheesecake de chicha morada", "d": "Cheesecake con salsa de chicha morada", "p": 4990}, {"n": "Crema volteada", "d": "Flan peruano tradicional", "p": 4990}, {"n": "Crème brûlée", "d": "Crema con costra de caramelo", "p": 4990}, {"n": "Tiramisú", "d": "Clásico italiano de la casa", "p": 4990}], "Piqueos": [{"n": "Piqueo fusion", "d": "Lomo saltado, ceviche de pescado, arroz a la chiclayana, cóctel de camarones, chicharrón de pollo", "p": 44990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/52784323-6dd0-433d-8b78-5e2166402d27.jpeg?quality=85&width=700"}, {"n": "Piqueo caliente", "d": "Chicharrón de pescado, brochetas de pollo, tequeños Ají Panka, ají de gallina, yucas a la huancaína", "p": 44990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/ee5d5cb9-70a5-4110-87ee-0faa893ad359.jpeg?quality=85&width=700"}, {"n": "Piqueo frio", "d": "Festín de mariscos, ceviche clásico, pulpo al olivo, leche de tigre, ceviche de la casa", "p": 42490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/943f295c-0f0a-47a4-94dd-207f1c9d2bf0.jpeg?quality=85&width=700"}, {"n": "Piqueo de barrio", "d": "Papas cheddar, camarones pop, lomo saltado, ceviche de salmón, chicharrón de pollo", "p": 42490, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/2525d29b-31d3-4c5b-96c5-d8091ac1413e.jpeg?quality=85&width=700"}, {"n": "Pulpo 3 tiempos", "d": "Pulpo al olivo, ceviche de pulpo, causa de pulpo a la parrilla", "p": 37990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/6900def7-869f-4310-ab73-81861fa675f1.jpeg?quality=85&width=700"}, {"n": "JALEA MIXTA", "d": "Chicharrón de pescado y mariscos, camarones, ostiones y pinzas de jaiba con sarza criolla y yucas fritas", "p": 27990, "img": "https://pedidosya.dhmedia.io/image/pedidosya/products/5ea25247-2762-4848-81e7-764f8de28474.jpeg?quality=85&width=700"}]};
+const DRINKS=[["Sour Capilla Quebranta", 6900], ["Sour Catedral Quebranta", 10900], ["Sour Basílica Quebranta", 13900], ["Chilcano clásico Quebranta", 7100], ["Mojito", 7900], ["Algarrobina Catedral", 8900], ["Amaretto Sour Catedral", 8900], ["Whisky Sour Catedral", 8900], ["Perú Libre Quebranta", 6600], ["Sangría", 6500], ["Aperol Spritz", 6900], ["Piña Colada", 6900], ["Pisco Sour (litro)", 24990], ["Jugo natural", 4500], ["Inca Kola 500 ml", 4200], ["Coca-Cola", 2990]];
+const fmt=p=>"$"+p.toLocaleString("es-CL");
+const cap=s=>s.toLowerCase().replace(/(^|\s|\()([a-záéíóúñ])/g,(m,a,b)=>a+b.toUpperCase()).replace(/\b(A|De|La|Del|Al|Con|Y|En|Lo|Las|Los)\b/g,w=>w.toLowerCase()).replace(/^./,c=>c.toUpperCase());
+const sent=s=>{s=s.trim().toLowerCase();return s.charAt(0).toUpperCase()+s.slice(1)};
+const waLink=d=>"https://wa.me/"+WA_PHONE+"?text="+encodeURIComponent("Hola equipo Ají Panka 🌶️ Me gustaría pedir: "+d.n+" ("+fmt(d.p)+"). ¿Está disponible?");
+const card=(d,i)=>`<article class="card" style="animation-delay:${i*40}ms"><div class="ph">${d.top?'<span class="tag">Más vendido</span>':''}<img loading="lazy" src="${d.img}" alt="${cap(d.n)}"></div><div class="bd"><h3>${cap(d.n)}</h3><p>${sent(d.d)}</p><div class="row"><span class="price">${fmt(d.p)}</span><a class="add" href="${waLink(d)}" target="_blank" rel="noopener" title="Pedir por WhatsApp">+</a></div></div></article>`;
+const line=(d,i)=>`<div class="li" style="animation-delay:${i*30}ms"><div class="dots"><h3>${cap(d.n)}</h3><p>${sent(d.d)}</p></div><span class="price">${fmt(d.p)}</span></div>`;
+
+// tabs
+const cats=Object.keys(MENU).filter(c=>c!=="Piqueos");
+const tabs=document.getElementById("tabs"),menu=document.getElementById("menu");
+function show(c){
+  [...tabs.children].forEach(b=>b.classList.toggle("on",b.dataset.c===c));
+  const items=MENU[c];const withImg=items.every(x=>x.img);
+  menu.innerHTML=withImg?`<div class="grid">${items.map(card).join("")}</div>`:`<div class="list">${items.map(line).join("")}</div>`;
+}
+cats.forEach(c=>{const b=document.createElement("button");b.className="tab";b.textContent=c;b.dataset.c=c;b.onclick=()=>show(c);tabs.appendChild(b)});
+show(cats[0]);
+
+// favoritos
+const all=Object.values(MENU).flat();
+const favNames=["LOMO SALTEADO","CEVICHE MIXTO","AJI DE GALLINA","FILETE BBQ","Pollo salteado","FETUCCINNI A LA HUANCAINA"];
+document.getElementById("favGrid").innerHTML=favNames.map(n=>all.find(x=>x.n===n)).map(d=>`<a class="fav reveal" href="${waLink(d)}" target="_blank" rel="noopener"><span class="tag">Más vendido</span><img loading="lazy" src="${d.img}" alt="${cap(d.n)}"><div class="cap"><h3>${cap(d.n)}</h3><p>${sent(d.d)}</p><span class="price">${fmt(d.p)}</span></div></a>`).join("");
+document.getElementById("pqGrid").innerHTML=MENU["Piqueos"].map(card).join("");
+document.getElementById("drinks").innerHTML=DRINKS.map(d=>`<div class="drink"><span>${d[0]}</span><span>${fmt(d[1])}</span></div>`).join("");
+
+// nav + reveal
+const nav=document.getElementById("nav");
+addEventListener("scroll",()=>nav.classList.toggle("solid",scrollY>60),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
